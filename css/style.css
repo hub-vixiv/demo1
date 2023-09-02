@@ -597,6 +597,18 @@ main #about .wrap .right p {
     overflow-x: auto;
   }
 }
+main .contact {
+  font-size: 1.3rem;
+  margin: 20px auto;
+  text-align: center;
+  border-top: 1px solid #000;
+}
+main .contact button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  font-size: 1.5rem;
+  border-radius: 6px;
+}
 
 footer .footer_bottom {
   background-color: deepskyblue;
