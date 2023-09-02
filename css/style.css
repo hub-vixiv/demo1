@@ -1,0 +1,607 @@
+@charset "UTF-8";
+/*
+Theme Name:Tomomi-01
+Author: Office step
+Version 1.0.1
+*/
+/*--------------------
+Base
+----------------------*/
+/*example nav's background-color*/
+/*example button's background-dolor*/
+/*example button's font color*/
+/*example button's point color*/
+/* m = mobile */
+/* t = tablet */
+/* media mixin */
+/* ＰＣファースト 指定以下に適用 */
+/* モバイルファースト */
+@font-face {
+  font-family: "Marck Script";
+  src: url(../webfonts/MarckScript-Regular.ttf);
+}
+@font-face {
+  font-family: "Caveat";
+  src: url(../webfonts/Caveat-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: "Kiwi Maru";
+  src: url(../webfonts/KiwiMaru-Light.ttf);
+}
+@font-face {
+  font-family: "Charmonman";
+  src: url(../webfonts/Charmonman-Regular.ttf);
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Charmonman";
+  src: url(../webfonts/Charmonman-Bold.ttf);
+  font-weight: bold;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+  color: dimgray;
+  font-family: "Kiwi Maru", serif;
+  background-color: ghostwhite;
+  scroll-behavior: smooth;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+
+a {
+  text-decoration: none;
+  color: dimgray;
+}
+
+.a_btn {
+  display: inline-block;
+  background-color: deepskyblue;
+  border: 1px solid deepskyblue;
+  color: floralwhite;
+  border-radius: 1.5em;
+  height: 3em;
+  line-height: 3em;
+  padding: 0 30px;
+  font-weight: bold;
+  box-shadow: 2px 2px 6px darkgray;
+  transition: 0.4s;
+}
+.a_btn:hover {
+  box-shadow: none;
+  opacity: 0.7;
+}
+
+.a_btn2 {
+  display: inline-flex;
+  background-color: ghostwhite;
+  margin-right: 3vw;
+  padding: 1em;
+  height: 2em;
+  line-height: 2em;
+  border: 1px solid #000;
+  border-radius: 1em;
+  font-size: 1.3em;
+  justify-content: center;
+  align-items: center;
+}
+.a_btn2.color1 {
+  border-color: deepskyblue;
+  color: deepskyblue;
+}
+.a_btn2.color2 {
+  border-color: dimgray;
+  color: dimgray;
+}
+
+li {
+  list-style: none;
+  list-style-position: inside;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  margin-block-start: 1vh;
+  margin-block-end: 1vh;
+  color: deepskyblue;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 2.5em;
+}
+
+i {
+  font-family: "Font Awesome 5 Free"; /*←ココ！！！！！！！*/
+  font-weight: 900;
+  content: "\f007";
+}
+
+table {
+  width: 70vw;
+  margin: 0 auto;
+  border: 1px solid dimgray;
+  font-size: 1.5em;
+}
+table tr {
+  height: 2em;
+}
+table tr td {
+  border-bottom: 1px solid dimgray;
+  text-align: right;
+  padding: 0 1em;
+}
+table tr td:first-child {
+  background-color: paleturquoise;
+  color: dimgray;
+  width: 50%;
+  text-align: center;
+}
+
+.to_pagetop {
+  height: 8vh;
+  width: 8vh;
+  position: fixed;
+  right: 5vw;
+  bottom: 5vh;
+  background: deepskyblue;
+  border: solid 2px ghostwhite;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.pagetop_arrow {
+  height: 3vh;
+  width: 3vh;
+  border-top: 3px solid ghostwhite;
+  border-right: 3px solid ghostwhite;
+  transform: translateY(20%) rotate(-45deg);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 10vh;
+  /*activeクラスが付与されると線が回転して×になり、Menu⇒Closeに変更*/
+}
+@media screen and (max-width: 768px) {
+  .header {
+    display: block;
+    height: 100%;
+  }
+}
+.header .header_left {
+  width: 50%;
+  height: 8vh;
+}
+.header .header_left h1 {
+  height: 1em;
+  line-height: 1em;
+  text-align: left;
+  padding-left: 2vw;
+}
+.header .header_left .logo {
+  display: inline-block;
+  object-fit: cover;
+  height: 100%;
+}
+@media screen and (max-width: 768px) {
+  .header .header_left {
+    width: 100%;
+  }
+  .header .header_left h1 {
+    font-size: 2em;
+  }
+}
+.header .header_right {
+  height: 8vh;
+  position: fixed;
+  z-index: 999;
+  top: 3vh;
+  right: 3vw;
+  display: inline-flex;
+  justify-content: end;
+  align-items: center;
+}
+.header .header_right .link_btn_wrap {
+  height: 100%;
+}
+.header .header_right .link_btn_wrap a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 768px) {
+  .header .header_right {
+    position: initial;
+    z-index: 0;
+    display: flex;
+  }
+}
+.header .open_btn {
+  position: relative; /*ボタン内側の基点となるためrelativeを指定*/
+  color: deepskyblue;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  margin-right: 2vw;
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .header .open_btn {
+    display: block;
+  }
+}
+.header .open_btn span {
+  display: inline-block;
+  transition: all 0.4s; /*アニメーションの設定*/
+  position: absolute;
+  left: 14px;
+  height: 2px;
+  border-radius: 5px;
+  background: deepskyblue;
+  width: 45%;
+}
+.header .open_btn span:nth-of-type(1) {
+  top: 13px;
+}
+.header .open_btn span:nth-of-type(2) {
+  top: 19px;
+}
+.header .open_btn span:nth-of-type(3) {
+  top: 25px;
+}
+.header .open_btn span:nth-of-type(3)::after {
+  content: "Menu"; /*3つ目の要素のafterにMenu表示を指定*/
+  position: absolute;
+  top: 5px;
+  left: -2px;
+  color: deepskyblue;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+}
+.header .open_btn.active span:nth-of-type(1) {
+  top: 14px;
+  left: 18px;
+  transform: translateY(6px) rotate(-45deg);
+  width: 30%;
+}
+.header .open_btn.active span:nth-of-type(2) {
+  opacity: 0;
+}
+.header .open_btn.active span:nth-of-type(3) {
+  top: 26px;
+  left: 18px;
+  transform: translateY(-6px) rotate(45deg);
+  width: 30%;
+}
+.header .open_btn.active span:nth-of-type(3)::after {
+  content: "Close"; /*3つ目の要素のafterにClose表示を指定*/
+  transform: translateY(0) rotate(-45deg);
+  top: 5px;
+  left: 4px;
+}
+
+.jp {
+  vertical-align: bottom;
+}
+
+.en {
+  font-family: "Caveat", cursive;
+  color: deepskyblue;
+  vertical-align: top;
+}
+
+nav {
+  transition: 1s;
+  height: 10vh;
+  padding: 1vh auto;
+}
+nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav ul li {
+  text-align: center;
+  width: 15vw;
+  border-right: 1px solid dimgray;
+  font-size: 1.3em;
+}
+nav ul a {
+  display: block;
+  width: 100%;
+}
+nav.active {
+  right: 0;
+}
+@media screen and (max-width: 768px) {
+  nav {
+    background-color: rgba(255, 250, 240, 0.9);
+    position: fixed;
+    z-index: 3;
+    right: -100%;
+    top: 16vh;
+    width: 100vw;
+    height: 100%;
+  }
+  nav ul {
+    display: block;
+  }
+  nav ul li {
+    margin: 0 auto;
+    width: 80vw;
+    height: 15vh;
+    padding-top: 4vh;
+    border-right: none;
+    border-bottom: 1px solid dimgray;
+    vertical-align: middle;
+  }
+  nav ul a {
+    width: 100%;
+  }
+}
+
+main {
+  width: 100%;
+  background-color: ghostwhite;
+}
+main .catch_copy {
+  font-size: 4.5vw;
+  color: floralwhite;
+  text-shadow: 1vw 1vw 3vw #000;
+  vertical-align: middle;
+  z-index: 2;
+}
+main .sub_copy {
+  font-size: 0.75em;
+  vertical-align: middle;
+}
+main .grade_base {
+  position: relative;
+  width: 100%;
+}
+main .grade_to_right {
+  background-image: linear-gradient(to right, transparent, rgba(0, 191, 255, 0.752));
+  height: 30vh;
+  width: 60vw;
+  position: absolute;
+  top: -10vh;
+}
+@media (orientation: portrait) {
+  main .grade_to_right {
+    height: 15vh;
+    top: -5vh;
+  }
+}
+main .grade_to_left {
+  background-image: linear-gradient(to lrft, transparent, rgba(0, 191, 255, 0.752));
+  height: 30vh;
+  width: 60vw;
+  position: absolute;
+  top: -10vh;
+}
+main .right {
+  right: 0;
+}
+main .centaring {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .top_img {
+  position: relative;
+  background-image: url(../imgs/main1_1920.jpg);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 80vh;
+}
+main .top_img .catch_copy {
+  position: absolute;
+  top: 30vh;
+}
+main .top_img .en2 {
+  font-size: 8vw;
+  font-family: "Marck Script", cursive;
+  color: rgba(0, 191, 255, 0.3);
+  text-shadow: none;
+  transform: rotate(-15deg) translate(-4vw, 0vh);
+  z-index: 1;
+}
+main .title {
+  display: inline-block;
+  font-family: "Charmonman", cursive;
+  font-size: 8vw;
+  color: deepskyblue;
+  transform: rotate(-10deg) translate(1vw, 5vh);
+  margin-left: 3vw;
+}
+main section {
+  padding: 0 3vw;
+}
+main .message {
+  background-image: linear-gradient(to right, white 0% 40%, transparent 80% 100%), url(../imgs/main2_1280.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  padding: 0 3vw;
+}
+@media screen and (max-width: 768px) {
+  main .message {
+    height: 1000px;
+  }
+}
+main .message .point_wrap {
+  display: flex;
+  margin-top: 5vh;
+  margin-left: 5vw;
+}
+@media screen and (max-width: 768px) {
+  main .message .point_wrap {
+    flex-direction: column;
+    margin: 0 auto;
+    transform: scale(0.8, 0.8);
+  }
+}
+main .message .point {
+  border-top: 8px solid gainsboro;
+  border-left: 8px solid gainsboro;
+  border-bottom: 8px solid gainsboro;
+  border-radius: 50%;
+  height: 250px;
+  width: 250px;
+  margin-right: 3vw;
+}
+@media screen and (max-width: 768px) {
+  main .message .point {
+    margin: 2vh auto 0;
+  }
+}
+main .message .point span {
+  display: block;
+}
+main .message .point .no {
+  font-size: 6em;
+  transform: translate(50px, -70px);
+  z-index: 3;
+  color: paleturquoise;
+  font-style: italic;
+}
+main .message .point .sub_title {
+  font-family: "Marck Script", cursive;
+  font-size: 5em;
+  transform: translate(80px, -130px);
+  color: deepskyblue;
+}
+main .message .point .explain {
+  font-size: 2em;
+  transform: translate(0, -130px);
+  text-align: center;
+}
+main .message p {
+  margin: 5vh auto 0;
+}
+@media screen and (max-width: 768px) {
+  main .message p {
+    margin: 0;
+  }
+}
+main .message p .a_btn {
+  font-size: 2em;
+}
+@media screen and (max-width: 768px) {
+  main .message p .a_btn {
+    transform: scale(0.8, 0.8);
+  }
+}
+main #price {
+  position: relative;
+  margin-bottom: 5vh;
+}
+main #about {
+  background-color: floralwhite;
+  margin-bottom: 5vh;
+  height: 90vh;
+}
+main #about .wrap {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+main #about .wrap .left table {
+  margin-bottom: 5vh;
+  width: 40vw;
+  font-size: 1em;
+}
+main #about .wrap .left table th {
+  border-bottom: 1px solid dimgray;
+}
+main #about .wrap .left .info {
+  display: flex;
+  background-color: lightcyan;
+}
+main #about .wrap .left .info p {
+  height: 1.8em;
+  line-height: 1.8em;
+  margin: 0 1em;
+}
+main #about .wrap .left .info .label {
+  margin: 0.6em auto;
+  margin-left: 1em;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  font-size: 1.2em;
+}
+main #about .wrap .left .info .tel {
+  font-size: 1.8em;
+}
+@media screen and (max-width: 768px) {
+  main #about .wrap .left .info {
+    display: block;
+    margin-bottom: 5vh;
+  }
+  main #about .wrap .left .info p {
+    text-align: center;
+  }
+}
+main #about .wrap .right iframe {
+  width: 40vw;
+  height: 80%;
+}
+main #about .wrap .right p {
+  font-size: 1.2em;
+}
+@media screen and (max-width: 768px) {
+  main #about .wrap .right iframe {
+    width: 90vw;
+    height: 90vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  main #about {
+    height: 100%;
+  }
+  main #about .wrap {
+    display: block;
+  }
+  main #about .left .table_wrap {
+    min-width: 80vw;
+    overflow-x: auto;
+  }
+}
+
+footer .footer_bottom {
+  background-color: deepskyblue;
+  height: 2em;
+  line-height: 2em;
+  text-align: center;
+  color: floralwhite;
+}/*# sourceMappingURL=style.css.map */
