@@ -3,7 +3,7 @@
 
  https://hub-vixiv.github.io/demo1/
 
- steady-trifle-458d4d.netlify.app
+https://steady-trifle-458d4d.netlify.app/
 
 #### memo
 mdall.min.css と webfontsフォルダー　は　font awsomの
